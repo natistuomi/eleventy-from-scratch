@@ -24,6 +24,13 @@ config.addCollection('blog', collection => {
   return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
 });
 
+// Returns a list of people ordered by filename
+config.addCollection('people', collection => {
+  return collection.getFilteredByGlob('./src/people/*.md').sort((a, b) => {
+    return Number(a.fileSlug) > Number(b.fileSlug) ? 1 : -1;
+  });
+});
+
 // Set directories to pass through to the dist folder
 config.addPassthroughCopy('./src/images/');
   return {
