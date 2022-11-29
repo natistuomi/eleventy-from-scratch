@@ -11,15 +11,20 @@ config.addCollection('featuredWork', collection => {
     x => x.data.featured
   );
 });
-  // Set directories to pass through to the dist folder
-  config.addPassthroughCopy('./src/images/');
-    return {
-      markdownTemplateEngine: 'njk',
-      dataTemplateEngine: 'njk',
-      htmlTemplateEngine: 'njk',
-      dir: {
-        input: 'src',
-        output: 'dist'
-      }
-    };
+
+config.addCollection('blog', collection => {
+  return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse();
+});
+
+// Set directories to pass through to the dist folder
+config.addPassthroughCopy('./src/images/');
+  return {
+    markdownTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    dir: {
+      input: 'src',
+      output: 'dist'
+    }
+  };
 };
