@@ -1,4 +1,4 @@
-# PM (Redesign av Bildterapihuset) - Natalie Tuomi xx.03.21
+# PM - Natalie Tuomi
 
 ## Inledning
 
